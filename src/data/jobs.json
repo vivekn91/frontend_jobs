@@ -1,0 +1,22 @@
+[
+  {
+    "_id": "5b3a22d11099d0081c88aa5c",
+    "jobTitle": "Full Stack dev",
+    "skillSet": "Angular Js",
+    "experience": "3",
+    "job_location": "Chennai",
+    "appliedCount": 0,
+    "__v": 0,
+    "createdAt": "2018-07-02T13:04:17.736Z"
+  },
+  {
+    "_id": "5b3a23411099d0081c88aa5d",
+    "jobTitle": "Node Js dev",
+    "skillSet": "Angular Js,Node Js",
+    "experience": "3",
+    "job_location": "Chennai",
+    "appliedCount": 0,
+    "__v": 0,
+    "createdAt": "2018-07-02T13:06:09.391Z"
+  }
+]
