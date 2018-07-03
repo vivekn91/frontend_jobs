@@ -17,7 +17,21 @@ class Search extends Component {
     }
 
     getjobDetails = () => {
-        this.setState({ jobDetails: data });
+        
+		fetch("http://localhost:3001/api/job/view")
+      .then(res => res.json())
+      .then(
+        (result) => {
+          this.setState({ jobDetails: result.jobs });
+		  console.log(result.jobs);
+        },
+        // Note: it's important to handle errors here
+        // instead of a catch() block so that we don't swallow
+        // exceptions from actual bugs in components.
+        (error) => {
+          alert('Error in fetching data');
+        }
+      )
         //console.log(data);
         return data;
     };
