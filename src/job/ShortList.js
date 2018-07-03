@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import { Row, Col, Grid } from 'react-bootstrap';
-import JobCard from "./JobCard"
+import Shortlisted from "./Shortlisted"
 import data from "../data/jobs.json";
 
-class Search extends Component {
+class ShortList extends Component {
 
     state = {
         jobDetails: data,
@@ -50,7 +50,7 @@ class Search extends Component {
                                 {this.state.jobDetails !== [] ? (
                                     <Col xs={6} md={4}>
                                         {this.state.jobDetails.map(currentJob => (
-                                            <JobCard JobDetails={currentJob} />
+                                            <Shortlisted JobDetails={currentJob} />
 
                                         ))}
                                     </Col>
@@ -80,4 +80,4 @@ class Search extends Component {
     }
 }
 
-export default Search;
+export default ShortList;

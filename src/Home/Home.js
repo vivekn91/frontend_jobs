@@ -43,7 +43,13 @@ class Home extends Component {
                onClick={this.goTo.bind(this, 'search')}>Search Job</Button>
 			    <Button bsStyle="primary"
                className="btn-margin "
-               onClick={this.goTo.bind(this, 'search')}>Shortlist Candidates</Button>
+               onClick={this.goTo.bind(this, 'shortlist')}>Shortlist Candidates</Button>
+			    <Button bsStyle="primary"
+               className="btn-margin "
+               onClick={this.goTo.bind(this, 'shortlist')}>Take Interview</Button>
+			   <Button bsStyle="primary"
+               className="btn-margin "
+               onClick={this.goTo.bind(this, 'shortlist')}>On-Boarding</Button>
 			   </div>
 			   ): (
 			   <div>

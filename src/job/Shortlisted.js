@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import { Button,  Thumbnail , Label} from 'react-bootstrap';
+import { Button,  Thumbnail } from 'react-bootstrap';
 
-class JobCard extends Component {
+class Shortlisted extends Component {
 	
 
 	applyJob = () => {
@@ -14,14 +14,14 @@ class JobCard extends Component {
 			},
 			body: JSON.stringify({
 				id: this.props.JobDetails._id,
-				appliedUsers: { user:"Vivek"}
+				shortlistedUsers: {user:"Vivek"}
 			})
 		})
 		.then(res => res.json())
 		.then((response) =>{
 			console.log(response)
 			if(response.success){
-				alert("Applied Job");
+				alert("Shortlisted Job");
 			}else{
 				alert("Error occured");
 			}
@@ -32,9 +32,9 @@ class JobCard extends Component {
 
 	
 	render() {
-		var membersToRender = (this.props.JobDetails.appliedUsers !== undefined) ? this.props.JobDetails.appliedUsers.length : 0;
+		var membersToRender = (this.props.JobDetails.shortlistedUsers !== undefined) ? this.props.JobDetails.shortlistedUsers.length : 0;
 		
-		var d =this.props.JobDetails.appliedUsers;
+		var d =this.props.JobDetails.shortlistedUsers;
 		console.log(membersToRender);
     return (
 	
@@ -45,10 +45,9 @@ class JobCard extends Component {
             <h3>{this.props.JobDetails.jobTitle}</h3>
             <p>{this.props.JobDetails.skillSet}</p>
             <p>
-            <Button bsStyle="primary" onClick={this.applyJob}>Apply</Button>&nbsp;
-            <Button bsStyle="default disabled">Appled : {membersToRender}</Button>&nbsp;
 			
-			<Label bsStyle="success">Shortlisted</Label>
+            <Button bsStyle="primary" onClick={this.applyJob}>Shortlist</Button>&nbsp;
+            <Button bsStyle="default disabled">Shorlisted count : {membersToRender}</Button>
             </p>
         </Thumbnail>
         ) : null}
@@ -57,4 +56,4 @@ class JobCard extends Component {
 	}
   };
 
-export default JobCard;
+export default Shortlisted;
