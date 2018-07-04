@@ -1,9 +1,13 @@
 import React, { Component } from 'react';
-import { Row, Col, Grid } from 'react-bootstrap';
+import { Row, Col, Grid , Button,  Thumbnail  , Label, Table } from 'react-bootstrap';
 import JobCard from "./JobCard"
 import data from "../data/jobs.json";
 
-class Search extends Component {
+class TakeInterview extends Component {
+	
+	goTo(route) {
+    this.props.history.replace(`/${route}`)
+  }
 
     state = {
         jobDetails: data,
@@ -48,11 +52,39 @@ class Search extends Component {
                             <Row>
 
                                 {this.state.jobDetails !== [] ? (
+								
                                     <Col xs={6} md={4}>
-                                        {this.state.jobDetails.map((currentJob, key) => (
-                                            <JobCard JobDetails={currentJob} key={key}/>
-
-                                        ))}
+									<h2>Interview</h2>
+									
+									<Thumbnail> 
+									 <h3><Label bsStyle="default"> Vivek</Label></h3>
+									  
+									   <p>Technical:
+											<input type="range" min="1" max="100" value="50" />
+										</p>
+										<p>Team Skill:
+											<input type="range" min="1" max="100" value="50" />
+										</p>
+										<p>Notice period:
+											<input type="number" value="30" />
+										</p>
+										<p>Status : &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+											<select>
+												<option selected>--Choose--</option>
+												<option>Selected</option>
+												<option>Rejected</option>
+												<option>On-hold</option>
+											</select>
+										</p>
+										
+										<p>Feedback :<br/>
+											<textarea row="10" cols="30"></textarea>
+										</p>
+										<p>
+										  <Button bsStyle="primary">Save</Button>&nbsp;
+										  <Button bsStyle="default"  onClick={this.goTo.bind(this, 'ViewInterviewApplicants')}>Cancel</Button>
+										</p>
+										</Thumbnail>
                                     </Col>
                                 ) : "No Jobs Found"
                                 }
@@ -80,4 +112,4 @@ class Search extends Component {
     }
 }
 
-export default Search;
+export default TakeInterview;

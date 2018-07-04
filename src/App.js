@@ -23,7 +23,7 @@ class App extends Component {
         <Navbar fluid>
           <Navbar.Header>
             <Navbar.Brand>
-              <a onClick={this.goTo.bind(this, 'home')}>iJp</a>
+              <a onClick={this.goTo.bind(this, 'home')}>iJob portal</a>
             </Navbar.Brand>
             <Button
               bsStyle="primary"
@@ -31,6 +31,13 @@ class App extends Component {
               onClick={this.goTo.bind(this, 'home')}
             >
               Home
+            </Button>
+			 <Button
+              bsStyle="primary"
+              className="btn-margin pull-right"
+              onClick={this.goTo.bind(this, 'role')}
+            >
+              Change Role
             </Button>
             </Navbar.Header>
             <Nav pullRight>

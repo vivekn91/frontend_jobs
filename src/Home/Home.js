@@ -25,31 +25,45 @@ class Home extends Component {
   render() {
 	   const { profile } = this.state;
     const { isAuthenticated } = this.props.auth;
+	
+	const {role} = window.localStorage.getItem("role");
     return (
       <div className="container">
         {
           isAuthenticated() && (
             <Jumbotron>
-            <h1>Welcome 
-			{profile.name == "Vivek Check" ? " Candidate" : " Employer" }</h1>
+            <h1>Welcome to verizon
+			</h1>
             <p>
               Follow below link
             </p>
 			{profile.name == "Vivek Check" ?
 			(
 			<div>
+			 {(role == "CANDI")? (
+				<div>
 				<Button bsStyle="primary"
                className="btn-margin "
                onClick={this.goTo.bind(this, 'search')}>Search Job</Button>
-			    <Button bsStyle="primary"
-               className="btn-margin "
-               onClick={this.goTo.bind(this, 'shortlist')}>Shortlist Candidates</Button>
-			    <Button bsStyle="primary"
-               className="btn-margin "
-               onClick={this.goTo.bind(this, 'shortlist')}>Take Interview</Button>
 			   <Button bsStyle="primary"
                className="btn-margin "
-               onClick={this.goTo.bind(this, 'shortlist')}>On-Boarding</Button>
+               onClick={this.goTo.bind(this, 'OnBoarding')}>On-Boarding</Button>
+			   </div>
+			   ): ""
+			 }
+			 {(role !== "CANDI")? (
+			 <div>
+			    <Button bsStyle="primary"
+               className="btn-margin "
+               onClick={this.goTo.bind(this, 'applicant')}>View Applicants</Button>
+			    <Button bsStyle="primary"
+               className="btn-margin "
+               onClick={this.goTo.bind(this, 'ViewInterviewApplicants')}>Interview Pannel View</Button>
+			    <Button bsStyle="primary"
+               className="btn-margin "
+               onClick={this.goTo.bind(this, 'IR')}>IR</Button>
+			   </div>
+			 ): ""}
 			   </div>
 			   ): (
 			   <div>

@@ -32,24 +32,19 @@ class Shortlisted extends Component {
 
 	
 	render() {
-		var membersToRender = (this.props.JobDetails.shortlistedUsers !== undefined) ? this.props.JobDetails.shortlistedUsers.length : 0;
 		
-		var d =this.props.JobDetails.shortlistedUsers;
-		console.log(membersToRender);
     return (
 	
       <div>
         {this.props.JobDetails ? (
             
-            <Thumbnail>
-            <h3>{this.props.JobDetails.jobTitle}</h3>
-            <p>{this.props.JobDetails.skillSet}</p>
-            <p>
-			
-            <Button bsStyle="primary" onClick={this.applyJob}>Shortlist</Button>&nbsp;
-            <Button bsStyle="default disabled">Shorlisted count : {membersToRender}</Button>
-            </p>
-        </Thumbnail>
+
+			<tr>
+			  <td>1</td>
+			  <td>{this.props.JobDetails.user}</td>
+			  <td><Button bsStyle="primary" onClick={this.applyJob}>Shortlist</Button></td>
+			</tr>
+		 
         ) : null}
       </div>
     );

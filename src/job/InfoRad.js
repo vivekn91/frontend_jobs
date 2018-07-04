@@ -1,9 +1,13 @@
 import React, { Component } from 'react';
-import { Row, Col, Grid } from 'react-bootstrap';
-import JobCard from "./JobCard"
+import { Row, Col, Grid , Button,  Jumbotron } from 'react-bootstrap';
 import data from "../data/jobs.json";
 
-class Search extends Component {
+class InfoRad extends Component {
+	
+	goTo(route,role) {
+	window.localStorage.setItem("role",role)
+    this.props.history.replace(`/${route}`)
+  }
 
     state = {
         jobDetails: data,
@@ -47,15 +51,27 @@ class Search extends Component {
                         <Grid>
                             <Row>
 
-                                {this.state.jobDetails !== [] ? (
-                                    <Col xs={6} md={4}>
-                                        {this.state.jobDetails.map((currentJob, key) => (
-                                            <JobCard JobDetails={currentJob} key={key}/>
-
-                                        ))}
-                                    </Col>
-                                ) : "No Jobs Found"
-                                }
+                                <Jumbotron>
+            
+            <p>
+              Select Role
+            </p>
+			
+			<div>
+				<Button bsStyle="primary"
+               className="btn-margin "
+               onClick={this.goTo.bind(this, 'home', 'CANDI')}>Candidate</Button>
+			    <Button bsStyle="primary"
+               className="btn-margin "
+               onClick={this.goTo.bind(this, 'home', 'INTER')}>Interviewer</Button>
+			    <Button bsStyle="primary"
+               className="btn-margin "
+               onClick={this.goTo.bind(this, 'home', 'HR')}>Hr</Button>
+			   
+			   </div>
+			   
+		
+          </Jumbotron>
 
                             </Row>
                         </Grid>
@@ -80,4 +96,4 @@ class Search extends Component {
     }
 }
 
-export default Search;
+export default InfoRad;

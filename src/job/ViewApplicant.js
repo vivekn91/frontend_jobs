@@ -1,9 +1,13 @@
 import React, { Component } from 'react';
-import { Row, Col, Grid } from 'react-bootstrap';
+import { Row, Col, Grid , Button,  Thumbnail , Label } from 'react-bootstrap';
 import JobCard from "./JobCard"
 import data from "../data/jobs.json";
 
-class Search extends Component {
+class ViewApplicant extends Component {
+	
+	goTo(route) {
+    this.props.history.replace(`/${route}`)
+  }
 
     state = {
         jobDetails: data,
@@ -50,7 +54,18 @@ class Search extends Component {
                                 {this.state.jobDetails !== [] ? (
                                     <Col xs={6} md={4}>
                                         {this.state.jobDetails.map((currentJob, key) => (
-                                            <JobCard JobDetails={currentJob} key={key}/>
+											
+											<Thumbnail>
+												<h3>{currentJob.jobTitle}</h3>
+												<p>Open Count :: 10</p>
+												<p>Applied Count :: 2</p>
+												<p>Shortlisted Count :: 2</p>
+												<p>Selected Count :: 0</p>
+												<p>
+												<Button bsStyle="primary" onClick={this.goTo.bind(this, 'shortlist')}>View Details</Button>												
+												
+												</p>
+											</Thumbnail>
 
                                         ))}
                                     </Col>
@@ -80,4 +95,4 @@ class Search extends Component {
     }
 }
 
-export default Search;
+export default ViewApplicant;

@@ -1,9 +1,13 @@
 import React, { Component } from 'react';
-import { Row, Col, Grid } from 'react-bootstrap';
+import { Row, Col, Grid , Button,  Thumbnail , Label, Table } from 'react-bootstrap';
 import JobCard from "./JobCard"
 import data from "../data/jobs.json";
 
-class Search extends Component {
+class ViewInterviewApplicants extends Component {
+	
+	goTo(route) {
+    this.props.history.replace(`/${route}`)
+  }
 
     state = {
         jobDetails: data,
@@ -48,11 +52,40 @@ class Search extends Component {
                             <Row>
 
                                 {this.state.jobDetails !== [] ? (
-                                    <Col xs={6} md={4}>
-                                        {this.state.jobDetails.map((currentJob, key) => (
-                                            <JobCard JobDetails={currentJob} key={key}/>
-
-                                        ))}
+                                    <Col xs={12} md={12}>
+									<h3>List of Candidates</h3>
+                                        <Table striped bordered condensed hover>
+  <thead>
+    <tr>
+      <th>Candidate Name</th>
+      <th>Job Id</th>
+	  <th>Pannel Id</th>
+	  <th>Interviewed For</th>
+      <th>Action</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Vivek</td>
+      <td>Job - 12345 (Node Js Dev)</td>
+      <td>PAN_8964</td>
+	  <td>Level 1</td>
+      <td>
+	  <Button bsStyle="primary" onClick={this.goTo.bind(this, 'TakeInterview')}>Take Interview</Button>
+	  </td>
+    </tr>
+	<tr>
+      <td>Dinesh</td>
+      <td>Job - 12345 (Node Js Dev)</td>
+      <td>PAN_8964</td>
+	  <td>Level 1</td>
+      <td>
+	  <Button bsStyle="primary" onClick={this.goTo.bind(this, 'TakeInterview')}>Take Interview</Button>
+	  </td>
+    </tr>
+   
+  </tbody>
+</Table>
                                     </Col>
                                 ) : "No Jobs Found"
                                 }
@@ -80,4 +113,4 @@ class Search extends Component {
     }
 }
 
-export default Search;
+export default ViewInterviewApplicants;

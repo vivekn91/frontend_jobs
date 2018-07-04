@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Row, Col, Grid } from 'react-bootstrap';
+import { Row, Col, Grid, Table, Button, Tabs, Tab } from 'react-bootstrap';
 import Shortlisted from "./Shortlisted"
 import data from "../data/jobs.json";
 
@@ -15,6 +15,14 @@ class ShortList extends Component {
         this.getjobDetails();
         //console.log(this.state.jobDetails);
     }
+	
+	applyJob = () => {
+		alert("User Shorlisted")
+	}
+	
+	reject = () =>{
+		alert("User Rejected")
+	}
 
     getjobDetails = () => {
         
@@ -46,15 +54,72 @@ class ShortList extends Component {
                     isAuthenticated() && (
                         <Grid>
                             <Row>
-
-                                {this.state.jobDetails !== [] ? (
-                                    <Col xs={6} md={4}>
-                                        {this.state.jobDetails.map(currentJob => (
-                                            <Shortlisted JobDetails={currentJob} />
-
-                                        ))}
-                                    </Col>
+							<h1>Node Js Dev</h1>
+							{this.state.jobDetails !== [] ? (
+							 <Col xs={12} md={12}>
+                               <Tabs defaultActiveKey={2} id="uncontrolled-tab-example">
+  <Tab eventKey={1} title="Applied users">
+    <Table striped bordered condensed hover>
+								  <thead>
+									<tr>
+									  <th>#</th>
+									  <th>Users</th>
+									  <th>Action</th>
+									</tr>
+								  </thead>
+								  <tbody>
+                                 <tr>
+									  <td>1</td>
+									  <td><a href="#">Vivek</a></td>
+									  <td><Button bsStyle="primary" onClick={this.applyJob}>Shortlist</Button>&nbsp;
+									  <Button bsStyle="disabled"  onClick={this.reject}>Reject</Button></td>
+									</tr>
+									<tr>
+									  <td>2</td>
+									  <td><a href="#">Kumar</a></td>
+									  <td><Button bsStyle="disabled" onClick={this.applyJob}>Shortlist</Button>&nbsp;
+									  <Button bsStyle="danger" onClick={this.reject}>Reject</Button></td>
+									</tr>
+									 </tbody>
+								</Table>
+  </Tab>
+  <Tab eventKey={2} title="Shorlisted">
+    <Table striped bordered condensed hover>
+								  <thead>
+									<tr>
+									  <th>#</th>
+									  <th>Users</th>
+									   <th>Pannel Id</th>
+									  <th>Interview Status</th>
+									</tr>
+								  </thead>
+								  <tbody>
+                                 <tr>
+									  <td>1</td>
+									  <td><a href="#">Vivek</a></td>
+									  <td> <a href="#">PNL 123545</a></td>
+									  <td>Level 1</td>
+									</tr>
+									<tr>
+									   <td>1</td>
+									  <td><a href="#">Arun</a></td>
+									  <td> <a href="#">PNL 123545</a></td>
+									  <td>Yet to attended</td>
+									</tr>
+									 </tbody>
+								</Table>
+  </Tab>
+  <Tab eventKey={3} title="Rejected" disabled>
+    Tab 3 content
+  </Tab>
+</Tabs>
+								
+								
+								
+                                        
+										</Col>
                                 ) : "No Jobs Found"
+								
                                 }
 
                             </Row>

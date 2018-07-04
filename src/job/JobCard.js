@@ -44,11 +44,14 @@ class JobCard extends Component {
             <Thumbnail>
             <h3>{this.props.JobDetails.jobTitle}</h3>
             <p>{this.props.JobDetails.skillSet}</p>
+			<p>Applied Count ::{membersToRender}</p>
+			<Label bsStyle="success">Shortlisted</Label><br/><br/>
             <p>
             <Button bsStyle="primary" onClick={this.applyJob}>Apply</Button>&nbsp;
-            <Button bsStyle="default disabled">Appled : {membersToRender}</Button>&nbsp;
+			 <Button bsStyle="primary" >Book Slot</Button>&nbsp;
+			 <Button bsStyle="primary" >Download IC</Button>
 			
-			<Label bsStyle="success">Shortlisted</Label>
+			
             </p>
         </Thumbnail>
         ) : null}
