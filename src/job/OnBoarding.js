@@ -85,8 +85,8 @@ class OnBoarding extends Component {
 										<Col componentClass={ControlLabel} sm={2}>
 										  Joining Date
 										</Col>
-										<Col sm={10}>
-										  <FormControl type="Text" placeholder="Joining Date" />
+										<Col sm={2}>
+										  <FormControl type="date" placeholder="Joining Date" />
 										</Col>
 									  </FormGroup>
 									  

@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Row, Col, Grid , Button,  Thumbnail  , Label, Table } from 'react-bootstrap';
+import { Row, Col, Grid , Button,  Thumbnail  , Label, Table , FormGroup, ControlLabel,Form, FormControl, Checkbox, Radio} from 'react-bootstrap';
 import JobCard from "./JobCard"
 import data from "../data/jobs.json";
 
@@ -53,33 +53,61 @@ class TakeInterview extends Component {
 
                                 {this.state.jobDetails !== [] ? (
 								
-                                    <Col xs={6} md={4}>
+                                    <Col xs={6} md={6}>
 									<h2>Interview</h2>
 									
 									<Thumbnail> 
 									 <h3><Label bsStyle="default"> Vivek</Label></h3>
-									  
-									   <p>Technical:
-											<input type="range" min="1" max="100" value="50" />
-										</p>
-										<p>Team Skill:
-											<input type="range" min="1" max="100" value="50" />
-										</p>
-										<p>Notice period:
-											<input type="number" value="30" />
-										</p>
-										<p>Status : &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
-											<select>
+									  <Form horizontal>
+										<FormGroup controlId="formHorizontalPassword">
+											<Col componentClass={ControlLabel} sm={4}>
+											  Technical
+											</Col>
+											<Col sm={8}>
+											   <input type="range" min="1" max="100" value="50" />
+											</Col>
+										  </FormGroup>
+										  <FormGroup controlId="formHorizontalEmail">
+											<Col componentClass={ControlLabel} sm={4}>
+											  Team Skill
+											</Col>
+											<Col sm={8}>
+											  <input type="range" min="1" max="100" value="50" />
+											</Col>
+										  </FormGroup>
+										  <FormGroup controlId="formHorizontalPassword">
+											<Col componentClass={ControlLabel} sm={4}>
+											  Notice period
+											</Col>
+											<Col sm={8}>
+											   <input type="number" value="30" />
+											</Col>
+										  </FormGroup>
+										  <FormGroup controlId="formHorizontalPassword">
+											<Col componentClass={ControlLabel} sm={4}>
+											  Status
+											</Col>
+											<Col sm={8}>
+											   <select>
 												<option selected>--Choose--</option>
 												<option>Selected</option>
 												<option>Rejected</option>
 												<option>On-hold</option>
 											</select>
-										</p>
+											</Col>
+										  </FormGroup>
+										  
+										  <FormGroup controlId="formHorizontalPassword">
+											<Col componentClass={ControlLabel} sm={4}>
+											  Feedback
+											</Col>
+											<Col sm={8}>
+											   <textarea row="10" cols="30"></textarea>
+											</Col>
+										  </FormGroup>
+									  </Form>
+	
 										
-										<p>Feedback :<br/>
-											<textarea row="10" cols="30"></textarea>
-										</p>
 										<p>
 										  <Button bsStyle="primary">Save</Button>&nbsp;
 										  <Button bsStyle="default"  onClick={this.goTo.bind(this, 'ViewInterviewApplicants')}>Cancel</Button>

@@ -31,14 +31,7 @@ class App extends Component {
               onClick={this.goTo.bind(this, 'home')}
             >
               Home
-            </Button>
-			 <Button
-              bsStyle="primary"
-              className="btn-margin pull-right"
-              onClick={this.goTo.bind(this, 'role')}
-            >
-              Change Role
-            </Button>
+           </Button>
             </Navbar.Header>
             <Nav pullRight>
             
@@ -52,11 +45,23 @@ class App extends Component {
                   >
                     Log In
                   </Button>
+				  
                 )
             }
             {
               isAuthenticated() && (
-                  <Button
+			  <div>
+                 
+				   
+			 <Button
+              bsStyle="primary"
+              className="btn-margin pull-right"
+              onClick={this.goTo.bind(this, 'role')}
+            >
+              Change Role
+            </Button>
+			
+			 <Button
                     id="qsLogoutBtn"
                     bsStyle="primary"
                     className="btn-margin "
@@ -64,6 +69,7 @@ class App extends Component {
                   >
                     Log Out
                   </Button>
+			</div>
                 )
             }
           </Nav>

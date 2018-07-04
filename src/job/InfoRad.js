@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Row, Col, Grid , Button,  Jumbotron } from 'react-bootstrap';
+import { Row, Col, Grid , Button,  Jumbotron, Nav, NavItem } from 'react-bootstrap';
 import data from "../data/jobs.json";
 
 class InfoRad extends Component {
@@ -51,27 +51,19 @@ class InfoRad extends Component {
                         <Grid>
                             <Row>
 
-                                <Jumbotron>
-            
-            <p>
-              Select Role
-            </p>
-			
-			<div>
-				<Button bsStyle="primary"
-               className="btn-margin "
-               onClick={this.goTo.bind(this, 'home', 'CANDI')}>Candidate</Button>
-			    <Button bsStyle="primary"
-               className="btn-margin "
-               onClick={this.goTo.bind(this, 'home', 'INTER')}>Interviewer</Button>
-			    <Button bsStyle="primary"
-               className="btn-margin "
-               onClick={this.goTo.bind(this, 'home', 'HR')}>Hr</Button>
-			   
-			   </div>
-			   
-		
-          </Jumbotron>
+                                <Col xs={3}>
+								 <Nav bsStyle="pills" stacked>
+									<NavItem eventKey={1} title="Item">
+									  Hiring Ratio
+									</NavItem>
+									<NavItem eventKey={2} title="Item2">
+									  Qualified Ratio
+									</NavItem>
+									<NavItem eventKey={3} title="Item">
+									  Joining Index 
+									</NavItem>
+								  </Nav>
+								</Col>
 
                             </Row>
                         </Grid>

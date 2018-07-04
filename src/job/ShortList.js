@@ -64,6 +64,7 @@ class ShortList extends Component {
 									<tr>
 									  <th>#</th>
 									  <th>Users</th>
+									  <th>Resume</th>
 									  <th>Action</th>
 									</tr>
 								  </thead>
@@ -71,12 +72,14 @@ class ShortList extends Component {
                                  <tr>
 									  <td>1</td>
 									  <td><a href="#">Vivek</a></td>
+									   <td><a href="#">vivek_resume.pdf</a></td>
 									  <td><Button bsStyle="primary" onClick={this.applyJob}>Shortlist</Button>&nbsp;
 									  <Button bsStyle="disabled"  onClick={this.reject}>Reject</Button></td>
 									</tr>
 									<tr>
 									  <td>2</td>
 									  <td><a href="#">Kumar</a></td>
+									   <td><a href="#">kumar_resume.doc</a></td>
 									  <td><Button bsStyle="disabled" onClick={this.applyJob}>Shortlist</Button>&nbsp;
 									  <Button bsStyle="danger" onClick={this.reject}>Reject</Button></td>
 									</tr>
@@ -101,7 +104,7 @@ class ShortList extends Component {
 									  <td>Level 1</td>
 									</tr>
 									<tr>
-									   <td>1</td>
+									   <td>2</td>
 									  <td><a href="#">Arun</a></td>
 									  <td> <a href="#">PNL 123545</a></td>
 									  <td>Yet to attended</td>

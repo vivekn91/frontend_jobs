@@ -26,7 +26,7 @@ class Home extends Component {
 	   const { profile } = this.state;
     const { isAuthenticated } = this.props.auth;
 	
-	const {role} = window.localStorage.getItem("role");
+	var role = window.localStorage.getItem("role");
     return (
       <div className="container">
         {
@@ -59,9 +59,7 @@ class Home extends Component {
 			    <Button bsStyle="primary"
                className="btn-margin "
                onClick={this.goTo.bind(this, 'ViewInterviewApplicants')}>Interview Pannel View</Button>
-			    <Button bsStyle="primary"
-               className="btn-margin "
-               onClick={this.goTo.bind(this, 'IR')}>IR</Button>
+			   
 			   </div>
 			 ): ""}
 			   </div>

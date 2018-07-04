@@ -48,12 +48,13 @@ class Search extends Component {
                             <Row>
 
                                 {this.state.jobDetails !== [] ? (
-                                    <Col xs={6} md={4}>
+                                   <div>
                                         {this.state.jobDetails.map((currentJob, key) => (
-                                            <JobCard JobDetails={currentJob} key={key}/>
-
+										 <Col xs={3} md={4}>
+                                            <JobCard JobDetails={currentJob} Key={key}/>
+											</Col>
                                         ))}
-                                    </Col>
+                                    </div>
                                 ) : "No Jobs Found"
                                 }
 

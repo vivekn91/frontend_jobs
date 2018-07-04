@@ -52,9 +52,9 @@ class ViewApplicant extends Component {
                             <Row>
 
                                 {this.state.jobDetails !== [] ? (
-                                    <Col xs={6} md={4}>
+                                   <div>
                                         {this.state.jobDetails.map((currentJob, key) => (
-											
+											 <Col xs={6} md={4}>
 											<Thumbnail>
 												<h3>{currentJob.jobTitle}</h3>
 												<p>Open Count :: 10</p>
@@ -66,9 +66,9 @@ class ViewApplicant extends Component {
 												
 												</p>
 											</Thumbnail>
-
+											</Col>
                                         ))}
-                                    </Col>
+                                   </div>
                                 ) : "No Jobs Found"
                                 }
 
